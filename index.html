@@ -1,0 +1,978 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AURA ATELIER — Luxury Horology, Acoustics & Bespoke Artifacts</title>
+  <meta name="description"
+    content="Discover AURA Atelier — aerospace-grade titanium horology, planar studio acoustics, handcrafted Tuscan leatherware, and bespoke custom commissions." />
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✦</text></svg>" />
+
+  <!-- Premium Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Cinzel:wght@500;700;800&display=swap"
+    rel="stylesheet" />
+
+  <!-- Three.js for 60fps 3D WebGL Experiences -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+  <link rel="stylesheet" href="styles.css" />
+  <script src="script.js" defer></script>
+</head>
+
+<body>
+  <!-- Ambient Light Mesh (Subtle Background Glow) -->
+  <div class="ambient-mesh-glow" id="ambientMeshGlow" aria-hidden="true"></div>
+
+  <!-- Announcement Bar -->
+  <aside class="announcement-bar" aria-label="Store Announcement">
+    <div class="announcement-inner">
+      <span>✦ PRIX DE HAUTE HORLOGERIE 2026 WINNER</span>
+      <span class="dot">•</span>
+      <span>Complimentary Insured Courier on Orders Above ₹999</span>
+      <span class="dot">•</span>
+      <span>Use Code <strong>AURA10</strong> for 10% Off First Acquisition</span>
+      <span class="dot">•</span>
+      <span>Limited Serial Atelier Editions</span>
+    </div>
+  </aside>
+
+
+
+  <!-- Mobile Navigation Sheet Drawer -->
+  <div class="drawer-backdrop" id="mobileNavDrawer" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="drawer-panel mobile-nav-panel">
+      <div class="drawer-header">
+        <span class="site-logo">
+          <span class="logo-mark">✦</span>
+          <span class="logo-text">AURA <span class="logo-sub">ATELIER</span></span>
+        </span>
+        <button class="drawer-close-btn" id="closeMobileNavBtn" aria-label="Close menu">✕</button>
+      </div>
+      <div class="mobile-nav-links">
+        <a href="#cinema" class="mobile-nav-link"><span>01</span> Home Showcase</a>
+        <a href="#customizer" class="mobile-nav-link"><span>02</span> Bespoke Configurator</a>
+        <a href="#catalog" class="mobile-nav-link"><span>03</span> Archive Catalog</a>
+      </div>
+      <div class="mobile-nav-footer">
+        <p class="mob-footer-note">Handcrafted In Zurich & Geneva • Cryptographically Verified</p>
+      </div>
+    </div>
+  </div>
+
+  <main class="site-shell">
+    <!-- ====================================================================== -->
+    <!-- CINEMATIC SCROLL STORY SECTION                                         -->
+    <!-- ====================================================================== -->
+    <section class="cinema-scroll" id="cinema" aria-label="AURA luxury cinematic scroll story">
+      <div class="stage">
+        <div class="world">
+          <img class="scene-img sky-img"
+            src="https://raft-blast-61784561.figma.site/_assets/v11/16b5007d9c93971e26ffe4e0e3e37946f6bd538c.png"
+            alt="" />
+
+          <header class="site-header" aria-label="Primary navigation">
+            <a class="site-logo" href="#cinema">
+              <span class="logo-mark">✦</span>
+              <span class="logo-text">AURA <span class="logo-sub">ATELIER</span></span>
+            </a>
+
+            <nav class="site-nav" aria-label="Main menu">
+              <a href="#cinema" class="nav-link is-active">Showcase</a>
+              <a href="#customizer" class="nav-link">Bespoke</a>
+              <a href="#catalog" class="nav-link">Archive</a>
+            </nav>
+
+            <div class="header-right">
+
+
+
+
+
+
+              <button class="icon-btn wishlist-trigger" id="wishlistTriggerBtn" aria-label="View Wishlist">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path
+                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                  </path>
+                </svg>
+                <span class="badge" id="wishlistCount">0</span>
+              </button>
+
+              <button class="icon-btn cart-trigger" id="cartTriggerBtn" aria-label="View Shopping Cart">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                  <line x1="3" y1="6" x2="21" y2="6"></line>
+                  <path d="M16 10a4 4 0 0 1-8 0"></path>
+                </svg>
+                <span class="badge" id="cartCount">0</span>
+              </button>
+
+              <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+              </button>
+            </div>
+          </header>
+
+          <div class="back-stack">
+            <img class="scene-img back-img back-four"
+              src="https://raft-blast-61784561.figma.site/_assets/v11/8a7f8af50e0ce92ec2e228e7b0b4112178c51cf1.png"
+              alt="" />
+
+            <section class="sights-slider" aria-label="Featured artifact sights slider">
+              <div class="sights-track">
+                <!-- Sight Card 1 -->
+                <article class="sight-card" tabindex="0" role="button" aria-label="Horizon Titanium Chronograph"
+                  data-product-id="1">
+                  <div class="sight-card-top">
+                    <span class="sight-kicker">HOROLOGY • ₹2,499</span>
+                    <span class="sight-rating">★ 4.9</span>
+                  </div>
+                  <div class="sight-media">
+                    <img class="sight-product-img"
+                      src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=600&q=80"
+                      alt="Horizon Titanium Chronograph" />
+                  </div>
+                  <div class="sight-content">
+                    <h3 class="sight-title">Horizon Titanium Chronograph</h3>
+                    <p class="sight-desc">Grade 5 titanium caliber with double-domed AR sapphire crystal.</p>
+                    <div class="sight-actions">
+                      <button type="button" class="btn-sight-add" data-add-id="1">Add to Bag ✦</button>
+                      <button type="button" class="btn-sight-view" data-view-id="1">Quick View</button>
+                    </div>
+                  </div>
+                </article>
+
+                <!-- Sight Card 2 -->
+                <article class="sight-card" tabindex="0" role="button" aria-label="Resonance Studio Monitor"
+                  data-product-id="2">
+                  <div class="sight-card-top">
+                    <span class="sight-kicker">ACOUSTICS • ₹1,890</span>
+                    <span class="sight-rating">★ 5.0</span>
+                  </div>
+                  <div class="sight-media">
+                    <img class="sight-product-img"
+                      src="https://images.unsplash.com/photo-1545454675-3531b543be5d?auto=format&fit=crop&w=600&q=80"
+                      alt="Resonance Studio Monitor" />
+                  </div>
+                  <div class="sight-content">
+                    <h3 class="sight-title">Resonance Studio Monitor</h3>
+                    <p class="sight-desc">American walnut chassis housing custom beryllium dome mastering tweeters.</p>
+                    <div class="sight-actions">
+                      <button type="button" class="btn-sight-add" data-add-id="2">Add to Bag ✦</button>
+                      <button type="button" class="btn-sight-view" data-view-id="2">Quick View</button>
+                    </div>
+                  </div>
+                </article>
+
+                <!-- Sight Card 3 -->
+                <article class="sight-card" tabindex="0" role="button" aria-label="Tuscan Vachetta Weekender"
+                  data-product-id="3">
+                  <div class="sight-card-top">
+                    <span class="sight-kicker">LEATHERWARE • ₹1,999</span>
+                    <span class="sight-rating">★ 4.8</span>
+                  </div>
+                  <div class="sight-media">
+                    <img class="sight-product-img"
+                      src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=600&q=80"
+                      alt="Tuscan Vachetta Weekender" />
+                  </div>
+                  <div class="sight-content">
+                    <h3 class="sight-title">Tuscan Vachetta Weekender</h3>
+                    <p class="sight-desc">Naturally vegetable-tanned full-grain hide with solid Swiss brass hardware.
+                    </p>
+                    <div class="sight-actions">
+                      <button type="button" class="btn-sight-add" data-add-id="3">Add to Bag ✦</button>
+                      <button type="button" class="btn-sight-view" data-view-id="3">Quick View</button>
+                    </div>
+                  </div>
+                </article>
+
+                <!-- Sight Card 4 -->
+                <article class="sight-card" tabindex="0" role="button" aria-label="Aura Reference Headphones"
+                  data-product-id="4">
+                  <div class="sight-card-top">
+                    <span class="sight-kicker">PLANAR AUDIO • ₹1,450</span>
+                    <span class="sight-rating">★ 4.9</span>
+                  </div>
+                  <div class="sight-media">
+                    <img class="sight-product-img"
+                      src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=600&q=80"
+                      alt="Aura Reference Headphones" />
+                  </div>
+                  <div class="sight-content">
+                    <h3 class="sight-title">Aura Reference Headphones</h3>
+                    <p class="sight-desc">40mm planar magnetic transducers with supple lambskin ear cushions.</p>
+                    <div class="sight-actions">
+                      <button type="button" class="btn-sight-add" data-add-id="4">Add to Bag ✦</button>
+                      <button type="button" class="btn-sight-view" data-view-id="4">Quick View</button>
+                    </div>
+                  </div>
+                </article>
+
+                <!-- Sight Card 5 -->
+                <article class="sight-card" tabindex="0" role="button" aria-label="Monochrome Automatic Watch"
+                  data-product-id="5">
+                  <div class="sight-card-top">
+                    <span class="sight-kicker">HOROLOGY • ₹1,899</span>
+                    <span class="sight-rating">★ 4.7</span>
+                  </div>
+                  <div class="sight-media">
+                    <img class="sight-product-img"
+                      src="https://images.unsplash.com/photo-1524805444758-089113d48a6d?auto=format&fit=crop&w=600&q=80"
+                      alt="Monochrome Automatic Watch" />
+                  </div>
+                  <div class="sight-content">
+                    <h3 class="sight-title">Monochrome Automatic Watch</h3>
+                    <p class="sight-desc">Ultra-slim 7.8mm steel case with Bauhaus dial and exhibition caseback.</p>
+                    <div class="sight-actions">
+                      <button type="button" class="btn-sight-add" data-add-id="5">Add to Bag ✦</button>
+                      <button type="button" class="btn-sight-view" data-view-id="5">Quick View</button>
+                    </div>
+                  </div>
+                </article>
+
+                <!-- Sight Card 6 -->
+                <article class="sight-card" tabindex="0" role="button" aria-label="Architectural Portfolio Case"
+                  data-product-id="6">
+                  <div class="sight-card-top">
+                    <span class="sight-kicker">LEATHERWARE • ₹1,299</span>
+                    <span class="sight-rating">★ 4.9</span>
+                  </div>
+                  <div class="sight-media">
+                    <img class="sight-product-img"
+                      src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=600&q=80"
+                      alt="Architectural Portfolio Case" />
+                  </div>
+                  <div class="sight-content">
+                    <h3 class="sight-title">Architectural Portfolio Case</h3>
+                    <p class="sight-desc">Rigid briefcase for 16" laptops with concealed magnetic security latches.</p>
+                    <div class="sight-actions">
+                      <button type="button" class="btn-sight-add" data-add-id="6">Add to Bag ✦</button>
+                      <button type="button" class="btn-sight-view" data-view-id="6">Quick View</button>
+                    </div>
+                  </div>
+                </article>
+
+                <!-- Sight Card 7 -->
+                <article class="sight-card" tabindex="0" role="button" aria-label="Monolith Stoneware Desk Lamp"
+                  data-product-id="7">
+                  <div class="sight-card-top">
+                    <span class="sight-kicker">OBJECTS • ₹899</span>
+                    <span class="sight-rating">★ 5.0</span>
+                  </div>
+                  <div class="sight-media">
+                    <img class="sight-product-img"
+                      src="https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&w=600&q=80"
+                      alt="Monolith Stoneware Desk Lamp" />
+                  </div>
+                  <div class="sight-content">
+                    <h3 class="sight-title">Monolith Stoneware Desk Lamp</h3>
+                    <p class="sight-desc">Volcanic coarse stoneware with integrated dimmable warm 2200K filament.</p>
+                    <div class="sight-actions">
+                      <button type="button" class="btn-sight-add" data-add-id="7">Add to Bag ✦</button>
+                      <button type="button" class="btn-sight-view" data-view-id="7">Quick View</button>
+                    </div>
+                  </div>
+                </article>
+
+                <!-- Sight Card 10 -->
+                <article class="sight-card" tabindex="0" role="button" aria-label="Silk-Cashmere Thermal Knit"
+                  data-product-id="10">
+                  <div class="sight-card-top">
+                    <span class="sight-kicker">APPAREL • ₹799</span>
+                    <span class="sight-rating">★ 4.7</span>
+                  </div>
+                  <div class="sight-media">
+                    <img class="sight-product-img"
+                      src="https://images.unsplash.com/photo-1576566588028-4147f3842f27?auto=format&fit=crop&w=600&q=80"
+                      alt="Silk-Cashmere Thermal Knit" />
+                  </div>
+                  <div class="sight-content">
+                    <h3 class="sight-title">Silk-Cashmere Thermal Knit</h3>
+                    <p class="sight-desc">70% Mulberry silk and 30% fine cashmere offering ultra-fine 18-gauge warmth.
+                    </p>
+                    <div class="sight-actions">
+                      <button type="button" class="btn-sight-add" data-add-id="10">Add to Bag ✦</button>
+                      <button type="button" class="btn-sight-view" data-view-id="10">Quick View</button>
+                    </div>
+                  </div>
+                </article>
+              </div>
+            </section>
+
+            <img class="scene-img back-img back-bazaar"
+              src="https://raft-blast-61784561.figma.site/_assets/v11/864afe00e41e2fa20a5aa546e15cb807e0f81384.png"
+              alt="" />
+          </div>
+
+          <div class="sights-controls" aria-label="Slider controls">
+            <button class="sight-nav sight-prev" aria-label="Previous sight">←</button>
+            <button class="sight-nav sight-next" aria-label="Next sight">→</button>
+          </div>
+
+          <h1 class="hero-title">AURA</h1>
+
+          <img class="scene-img splitframe-img splitframe-left"
+            src="https://raft-blast-61784561.figma.site/_assets/v11/7536d7b60a1fce482cf6edf3f0bffd3bad5d0f8a.png"
+            alt="" />
+          <img class="scene-img splitframe-img splitframe-right"
+            src="https://raft-blast-61784561.figma.site/_assets/v11/392db6a6a6b98e868bd7f8d3f55bb719d51e5028.png"
+            alt="" />
+          <img class="scene-img bridge-img"
+            src="https://raft-blast-61784561.figma.site/_assets/v11/c6a6d8ef49bca43f708aa852692942c45ec950d4.png"
+            alt="" />
+          <img class="scene-img frame-two-img"
+            src="https://raft-blast-61784561.figma.site/_assets/v11/ba75252bab2b1c510987b74837770f7bc8a6b2d4.png"
+            alt="" />
+
+          <div class="shade"></div>
+        </div>
+
+        <section class="intro-copy" aria-label="AURA luxury highlights">
+          <p>Aerospace titanium horology, planar studio acoustics, and handcrafted Tuscan leatherware forged for
+            visionary collectors.</p>
+        </section>
+
+        <section class="story-panel story-panel-bridge" id="bridge" aria-label="Horology details">
+          <h2>Engineered to outlast generations.</h2>
+          <p>CNC-milled from aerospace Grade 5 titanium billets with double-domed anti-reflective sapphire crystals
+            rated to 9 Mohs hardness.</p>
+          <dl class="facts">
+            <div>
+              <dt>100m</dt>
+              <dd>Water Resistance (10 ATM)</dd>
+            </div>
+            <div>
+              <dt>68h</dt>
+              <dd>Power Reserve Caliber</dd>
+            </div>
+          </dl>
+        </section>
+
+        <section class="story-panel story-panel-bazaar" id="bazaar" aria-label="Acoustics & archive details">
+          <h2>The pinnacle of acoustic precision.</h2>
+          <p>Master acoustic enclosures housing beryllium drivers tuned for uncompromised mastering clarity and tactile
+            richness.</p>
+          <a href="#catalog" class="note-button" style="text-decoration: none;">
+            <span aria-hidden="true">✦</span>
+            <span>Explore Full Archive (₹799 – ₹2,499)</span>
+          </a>
+        </section>
+      </div>
+    </section>
+
+    <!-- ====================================================================== -->
+    <!-- 3. BESPOKE ATELIER CONFIGURATOR STUDIO                                 -->
+    <!-- ====================================================================== -->
+    <section class="customizer-section page-section" id="customizer" aria-label="Bespoke Timepiece Configurator">
+      <div class="customizer-container">
+        <div class="section-hero-header text-center">
+          <span class="tagline-kicker">✦ BESPOKE HOROLOGICAL LAB</span>
+          <h2 class="hero-headline section-page-title">Commission Your Unique Horizon</h2>
+          <p class="hero-subtext">Every bespoke commission is assembled by a dedicated master horologist in Geneva,
+            complete with your custom cryptographic rotor engraving.</p>
+        </div>
+
+        <div class="customizer-grid">
+          <!-- Left Visual Canvas / Live Preview -->
+          <div class="config-visual-panel">
+            <div class="config-stage-wrapper">
+              <div class="config-spec-badge" id="configBadge">GRADE 5 TITANIUM • SUNBURST OBSIDIAN</div>
+              <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=1000&q=80"
+                alt="Bespoke Horizon Watch Preview" id="configPreviewImg" class="config-preview-image" />
+
+              <!-- Engraved Monogram Laser Overlay Preview -->
+              <div class="laser-monogram-overlay" id="laserMonogramOverlay">
+                <span class="monogram-text" id="monogramPreviewText">A • W</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Interactive Options Panel -->
+          <div class="config-controls-panel">
+            <!-- 1. Case Material -->
+            <div class="config-group">
+              <label class="config-label">1. Select Case Material</label>
+              <div class="config-options-grid">
+                <button class="config-chip is-selected" data-opt-type="case" data-val="titanium" data-price="2499"
+                  data-name="Grade 5 Aerospace Titanium">
+                  <span class="color-swatch swatch-titanium"></span>
+                  <div>
+                    <strong>Titanium Grade 5</strong>
+                    <span>Lightweight & Indestructible (₹2,499 Base)</span>
+                  </div>
+                </button>
+                <button class="config-chip" data-opt-type="case" data-val="gold" data-price="3499"
+                  data-name="18K Forged Rose Gold">
+                  <span class="color-swatch swatch-gold"></span>
+                  <div>
+                    <strong>18K Forged Rose Gold</strong>
+                    <span>+ ₹1,000 (Precious Alloy)</span>
+                  </div>
+                </button>
+                <button class="config-chip" data-opt-type="case" data-val="ceramic" data-price="2999"
+                  data-name="Matte Obsidian Ceramic">
+                  <span class="color-swatch swatch-ceramic"></span>
+                  <div>
+                    <strong>Obsidian Ceramic</strong>
+                    <span>+ ₹500 (Scratch-Proof)</span>
+                  </div>
+                </button>
+              </div>
+            </div>
+
+            <!-- 2. Dial Guilloché -->
+            <div class="config-group">
+              <label class="config-label">2. Dial Guilloché Pattern</label>
+              <div class="config-options-grid">
+                <button class="config-chip is-selected" data-opt-type="dial" data-val="sunburst"
+                  data-name="Sunburst Obsidian">
+                  <strong>Sunburst Obsidian</strong>
+                </button>
+                <button class="config-chip" data-opt-type="dial" data-val="skeleton"
+                  data-name="Openworked Skeleton Tourbillon">
+                  <strong>Openworked Tourbillon</strong>
+                </button>
+                <button class="config-chip" data-opt-type="dial" data-val="meteorite"
+                  data-name="Muonionalusta Meteorite Dial">
+                  <strong>Rare Meteorite (+ ₹499)</strong>
+                </button>
+              </div>
+            </div>
+
+            <!-- 3. Strap Selection -->
+            <div class="config-group">
+              <label class="config-label">3. Strap Architecture</label>
+              <div class="config-options-grid">
+                <button class="config-chip is-selected" data-opt-type="strap" data-val="vachetta"
+                  data-name="Tuscan Vachetta Leather">
+                  <strong>Tuscan Vachetta Leather</strong>
+                </button>
+                <button class="config-chip" data-opt-type="strap" data-val="bracelet"
+                  data-name="Aerospace Titanium Bracelet">
+                  <strong>Titanium Link Bracelet</strong>
+                </button>
+                <button class="config-chip" data-opt-type="strap" data-val="cordovan"
+                  data-name="Horween Shell Cordovan">
+                  <strong>Shell Cordovan Black</strong>
+                </button>
+              </div>
+            </div>
+
+            <!-- 4. Laser Rotor Engraving -->
+            <div class="config-group">
+              <label class="config-label">4. Custom Rotor Laser Engraving</label>
+              <div class="engraving-input-box">
+                <input type="text" id="engravingInput" maxlength="12" placeholder="e.g. A. WRIGHT 2026" value="A • W" />
+                <span class="engraving-hint">Max 12 characters • Micro-etched onto 22K gold oscillating rotor</span>
+              </div>
+            </div>
+
+            <!-- Total & Commission Trigger -->
+            <div class="config-summary-box">
+              <div>
+                <span class="config-total-label">Commission Total:</span>
+                <span class="config-total-val" id="configTotalVal">$1,450</span>
+              </div>
+              <button class="btn btn-primary btn-large" id="commissionBespokeBtn">
+                <span>Commission Bespoke Piece</span>
+                <span class="btn-arrow">→</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+    <!-- ====================================================================== -->
+    <!-- 5. COMPREHENSIVE STORE PRODUCT CATALOG                                 -->
+    <!-- ====================================================================== -->
+    <section class="catalog-section page-section" id="catalog" aria-label="Product Catalog">
+      <div class="catalog-container">
+        <div class="section-hero-header text-center">
+          <span class="tagline-kicker">✦ COMPLETE PERMANENT ARCHIVE</span>
+          <h2 class="hero-headline section-page-title">The Atelier Archive</h2>
+          <p class="hero-subtext">Every piece is crafted in limited batches, inspected by hand in our Swiss & Tuscan
+            ateliers, and registered with cryptographic authenticity.</p>
+        </div>
+
+        <div class="catalog-header">
+          <!-- Category Filter Tabs -->
+          <div class="category-filter-bar" role="tablist" aria-label="Product Categories">
+            <button class="cat-filter-btn is-active" data-category="all" role="tab" aria-selected="true">All Artifacts
+              (8)</button>
+            <button class="cat-filter-btn" data-category="timepieces" role="tab"
+              aria-selected="false">Timepieces</button>
+            <button class="cat-filter-btn" data-category="acoustics" role="tab" aria-selected="false">Precision
+              Audio</button>
+            <button class="cat-filter-btn" data-category="leather" role="tab" aria-selected="false">Fine
+              Leatherware</button>
+            <button class="cat-filter-btn" data-category="objects" role="tab" aria-selected="false">Objects &
+              Decor</button>
+            <button class="cat-filter-btn" data-category="apparel" role="tab" aria-selected="false">Haute
+              Apparel</button>
+          </div>
+
+          <!-- Controls Bar: Search Filter & Sort -->
+          <div class="catalog-toolbar">
+            <div class="toolbar-search">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+              <input type="text" id="catalogSearchInput" placeholder="Filter by keyword..." />
+            </div>
+
+            <div class="toolbar-sort">
+              <label for="catalogSortSelect" class="sort-label">Sort by:</label>
+              <select id="catalogSortSelect" class="sort-select">
+                <option value="featured">Featured First</option>
+                <option value="price-asc">Price: Low to High</option>
+                <option value="price-desc">Price: High to Low</option>
+                <option value="rating">Top Rated</option>
+                <option value="newest">New Arrivals</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product Cards Grid with 3D Tilt -->
+        <div class="product-grid" id="productGrid">
+          <!-- Rendered dynamically by script.js -->
+        </div>
+
+        <!-- Empty State Message -->
+        <div class="empty-state" id="catalogEmptyState" style="display: none;">
+          <span class="empty-icon">✦</span>
+          <h3>No matching artifacts found</h3>
+          <p>Try resetting your search query or switching to another category.</p>
+          <button class="btn btn-secondary" id="resetFiltersBtn">Reset All Filters</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ====================================================================== -->
+  <!-- MODALS, DRAWERS & INTERACTIVE SLIDEOUTS                                -->
+  <!-- ====================================================================== -->
+
+  <!-- 1. Cart Drawer Slideout -->
+  <div class="drawer-backdrop" id="cartDrawer" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="drawer-panel cart-drawer-panel">
+      <div class="drawer-header">
+        <div class="drawer-title-wrap">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <path d="M16 10a4 4 0 0 1-8 0"></path>
+          </svg>
+          <h3>Shopping Cart (<span id="cartDrawerCount">0</span>)</h3>
+        </div>
+        <button class="drawer-close-btn" id="closeCartBtn" aria-label="Close cart">✕</button>
+      </div>
+
+      <!-- Free Shipping Progress Tracker -->
+      <div class="shipping-tracker-box">
+        <div class="shipping-tracker-label" id="shippingTrackerLabel">Add $500 more for Free Worldwide Express</div>
+        <div class="shipping-tracker-bar">
+          <div class="shipping-progress" id="shippingProgressBar" style="width: 0%;"></div>
+        </div>
+      </div>
+
+      <!-- Cart Items List -->
+      <div class="drawer-body cart-items-container" id="cartItemsContainer"></div>
+
+      <!-- Cart Footer / Summary -->
+      <div class="drawer-footer cart-footer" id="cartFooter">
+        <div class="promo-code-box">
+          <input type="text" id="promoCodeInput" placeholder="Promo Code (try AURA10)" />
+          <button class="btn-apply-promo" id="applyPromoBtn">Apply</button>
+        </div>
+        <div class="promo-message" id="promoMessage" style="display: none;"></div>
+
+        <div class="cart-summary-rows">
+          <div class="summary-row">
+            <span>Subtotal</span>
+            <span id="cartSubtotal">$0.00</span>
+          </div>
+          <div class="summary-row" id="discountRow" style="display: none;">
+            <span>Discount (Voucher)</span>
+            <span id="cartDiscount" class="text-green">-$0.00</span>
+          </div>
+          <div class="summary-row">
+            <span>Insured Armored Courier</span>
+            <span id="cartShipping">Free</span>
+          </div>
+          <div class="summary-row total-row">
+            <span>Estimated Total</span>
+            <span id="cartTotal">$0.00</span>
+          </div>
+        </div>
+
+        <button class="btn btn-primary btn-block checkout-btn" id="proceedCheckoutBtn">
+          <span>Proceed To Checkout</span>
+          <span class="btn-arrow">→</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. Wishlist Slideout Drawer -->
+  <div class="drawer-backdrop" id="wishlistDrawer" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="drawer-panel wishlist-drawer-panel">
+      <div class="drawer-header">
+        <div class="drawer-title-wrap">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path
+              d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+            </path>
+          </svg>
+          <h3>Saved Wishlist (<span id="wishlistDrawerCount">0</span>)</h3>
+        </div>
+        <button class="drawer-close-btn" id="closeWishlistBtn" aria-label="Close wishlist">✕</button>
+      </div>
+      <div class="drawer-body wishlist-items-container" id="wishlistItemsContainer"></div>
+    </div>
+  </div>
+
+  <!-- 3. Product Quick View / Detail Modal -->
+  <div class="modal-backdrop" id="productModal" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="modal-card product-modal-card">
+      <button class="modal-close-btn" id="closeProductModalBtn" aria-label="Close product view">✕</button>
+      <div class="modal-product-content" id="modalProductContent"></div>
+    </div>
+  </div>
+
+  <!-- 4. Interactive Multi-Step Checkout Modal -->
+  <div class="modal-backdrop" id="checkoutModal" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="modal-card checkout-modal-card">
+      <button class="modal-close-btn" id="closeCheckoutModalBtn" aria-label="Close checkout">✕</button>
+
+      <div class="checkout-steps-header">
+        <div class="step-indicator is-active" id="stepIndicator1"><span>1</span> Delivery</div>
+        <div class="step-line"></div>
+        <div class="step-indicator" id="stepIndicator2"><span>2</span> Payment</div>
+        <div class="step-line"></div>
+        <div class="step-indicator" id="stepIndicator3"><span>3</span> Certificate</div>
+      </div>
+
+      <!-- Checkout Step 1: Delivery Address -->
+      <form class="checkout-step-content" id="checkoutStep1">
+        <h3 class="step-title">Express Armored Destination</h3>
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="cFirstName">First Name</label>
+            <input type="text" id="cFirstName" required placeholder="Alexander" />
+          </div>
+          <div class="form-group">
+            <label for="cLastName">Last Name</label>
+            <input type="text" id="cLastName" required placeholder="Wright" />
+          </div>
+          <div class="form-group span-2">
+            <label for="cEmail">Email for Cryptographic Certificate & Tracking</label>
+            <input type="email" id="cEmail" required placeholder="alexander.wright@collector.ch" />
+          </div>
+          <div class="form-group span-2">
+            <label for="cAddress">Street Address</label>
+            <input type="text" id="cAddress" required placeholder="Quai du Mont-Blanc 19" />
+          </div>
+          <div class="form-group">
+            <label for="cCity">City</label>
+            <input type="text" id="cCity" required placeholder="Geneva" />
+          </div>
+          <div class="form-group">
+            <label for="cPostal">Postal Code</label>
+            <input type="text" id="cPostal" required placeholder="1201" />
+          </div>
+          <div class="form-group span-2">
+            <label for="cCountry">Country / Region</label>
+            <select id="cCountry" required>
+              <option value="CH">Switzerland (CH)</option>
+              <option value="US">United States (US)</option>
+              <option value="GB">United Kingdom (GB)</option>
+              <option value="DE">Germany (DE)</option>
+              <option value="FR">France (FR)</option>
+              <option value="IT">Italy (IT)</option>
+              <option value="JP">Japan (JP)</option>
+              <option value="CA">Canada (CA)</option>
+            </select>
+          </div>
+        </div>
+        <div class="step-actions">
+          <button type="button" class="btn btn-secondary" id="cancelCheckoutBtn">Back to Cart</button>
+          <button type="submit" class="btn btn-primary">
+            <span>Continue to Payment</span>
+            <span class="btn-arrow">→</span>
+          </button>
+        </div>
+      </form>
+
+      <!-- Checkout Step 2: Payment Details -->
+      <form class="checkout-step-content" id="checkoutStep2" style="display: none;">
+        <h3 class="step-title">Encrypted Acquisition Payment</h3>
+        <div class="payment-methods-selector">
+          <label class="pay-method-card is-selected">
+            <input type="radio" name="payMethod" value="card" checked />
+            <span class="pay-title">Credit / Debit Card</span>
+            <span class="pay-icons">VISA • MC • AMEX</span>
+          </label>
+          <label class="pay-method-card">
+            <input type="radio" name="payMethod" value="apple" />
+            <span class="pay-title">Apple Pay / Google Pay</span>
+            <span class="pay-icons">Instant Token</span>
+          </label>
+        </div>
+
+        <div class="card-inputs-box" id="cardInputsBox">
+          <div class="form-group">
+            <label for="ccNumber">Card Number</label>
+            <input type="text" id="ccNumber" required placeholder="4242 •••• •••• 4242" maxlength="19" />
+          </div>
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="ccExpiry">Expiry Date</label>
+              <input type="text" id="ccExpiry" required placeholder="MM/YY" maxlength="5" />
+            </div>
+            <div class="form-group">
+              <label for="ccCvc">CVC Security Code</label>
+              <input type="text" id="ccCvc" required placeholder="CVC" maxlength="4" />
+            </div>
+          </div>
+        </div>
+
+        <div class="checkout-summary-pill">
+          <span>Amount To Authorize:</span>
+          <strong id="checkoutFinalAmount">$0.00</strong>
+        </div>
+
+        <div class="step-actions">
+          <button type="button" class="btn btn-secondary" id="backToStep1Btn">Back</button>
+          <button type="submit" class="btn btn-primary" id="confirmPaymentBtn">
+            <span>Authorize Acquisition</span>
+            <span class="btn-arrow">✓</span>
+          </button>
+        </div>
+      </form>
+
+      <!-- Checkout Step 3: Holographic Cryptographic Certificate -->
+      <div class="checkout-step-content success-step" id="checkoutStep3" style="display: none;">
+        <div class="success-seal">✦</div>
+        <h3 class="success-title">Acquisition Confirmed & Sealed</h3>
+        <p class="success-msg">Your numbered cryptographic certificate of authenticity is registered on the AURA Ledger.
+        </p>
+
+        <div class="holographic-certificate-card" id="holographicCertificateCard">
+          <!-- Injected dynamically with 3D foil tilt -->
+        </div>
+
+        <div class="step-actions">
+          <button type="button" class="btn btn-primary" id="finishCheckoutBtn">Return to Atelier</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5. Collector Account & Vault Dashboard Modal -->
+  <div class="modal-backdrop" id="accountModal" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="modal-card account-modal-card">
+      <button class="modal-close-btn" id="closeAccountModalBtn" aria-label="Close vault">✕</button>
+      <div class="account-header">
+        <div class="account-profile-badge">
+          <div class="account-avatar-ring">✦</div>
+          <div>
+            <span class="account-tier-kicker">✦ GRAND MASTER GUILD MEMBER</span>
+            <h2 class="account-name">Lord Alistair Sterling</h2>
+            <span class="account-meta">Zurich Vault ID: #AV-99201 • Member Since 2024</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="account-tabs-nav">
+        <button class="account-tab-btn is-active" data-tab="certificates">Vault Certificates (3)</button>
+        <button class="account-tab-btn" data-tab="ledger">Acquisition Ledger</button>
+        <button class="account-tab-btn" data-tab="security">Hardware & Security</button>
+      </div>
+
+      <div class="account-tab-content is-active" id="tabCertificates">
+        <div class="vault-grid">
+          <div class="vault-item-card">
+            <div class="vault-item-header">
+              <span class="vault-kicker">HOROLOGY</span>
+              <span class="vault-status">CRYPTOGRAPHICALLY SEALED</span>
+            </div>
+            <h4>Horizon Titanium Chronograph</h4>
+            <p class="vault-meta">Edition No. 001/500 • Caliber A-88 Automatic</p>
+            <div class="vault-item-footer">
+              <span class="vault-cert-ref">NFC #99482-ZH</span>
+              <button class="btn-view-cert" data-cert="horizon">Inspect NFC Seal ✦</button>
+            </div>
+          </div>
+
+          <div class="vault-item-card">
+            <div class="vault-item-header">
+              <span class="vault-kicker">ACOUSTICS</span>
+              <span class="vault-status">CALIBRATED</span>
+            </div>
+            <h4>Resonance Studio Monitor</h4>
+            <p class="vault-meta">Solid American Walnut & Beryllium Tweeter</p>
+            <div class="vault-item-footer">
+              <span class="vault-cert-ref">NFC #88123-ZH</span>
+              <button class="btn-view-cert" data-cert="resonance">Inspect NFC Seal ✦</button>
+            </div>
+          </div>
+
+          <div class="vault-item-card">
+            <div class="vault-item-header">
+              <span class="vault-kicker">LEATHERWARE</span>
+              <span class="vault-status">AUTHENTICATED</span>
+            </div>
+            <h4>Tuscan Vachetta Weekender</h4>
+            <p class="vault-meta">Full-Grain Chestnut Patina • Florence Guild</p>
+            <div class="vault-item-footer">
+              <span class="vault-cert-ref">NFC #77419-FL</span>
+              <button class="btn-view-cert" data-cert="vachetta">Inspect NFC Seal ✦</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="account-tab-content" id="tabLedger" style="display: none;">
+        <div class="ledger-table-wrap">
+          <table class="ledger-table">
+            <thead>
+              <tr>
+                <th>Reference</th>
+                <th>Date</th>
+                <th>Artifacts</th>
+                <th>Amount</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody id="ledgerTableBody">
+              <tr>
+                <td><code>AURA-982415</code></td>
+                <td>Aug 14, 2026</td>
+                <td>Horizon Titanium Chronograph</td>
+                <td>$1,450</td>
+                <td><span class="badge-status-settled">Settled</span></td>
+              </tr>
+              <tr>
+                <td><code>AURA-831902</code></td>
+                <td>Jul 02, 2026</td>
+                <td>Resonance Studio Monitor</td>
+                <td>$890</td>
+                <td><span class="badge-status-settled">Settled</span></td>
+              </tr>
+              <tr>
+                <td><code>AURA-710492</code></td>
+                <td>May 19, 2026</td>
+                <td>Tuscan Vachetta Carry</td>
+                <td>$1,220</td>
+                <td><span class="badge-status-settled">Settled</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="account-tab-content" id="tabSecurity" style="display: none;">
+        <div class="security-settings-card">
+          <div class="sec-item">
+            <div>
+              <strong>Biometric NFC Ledger Verification</strong>
+              <p>Hardware security keys required for order authorization and certificate release.</p>
+            </div>
+            <span class="sec-status enabled">Active (YubiKey 5 FIPS)</span>
+          </div>
+          <div class="sec-item">
+            <div>
+              <strong>Armored Courier Vault Hand-off Protocol</strong>
+              <p>Personal biometric signature required upon white-glove arrival.</p>
+            </div>
+            <span class="sec-status enabled">Enforced</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 6. Collector Review Submission Modal -->
+  <div class="modal-backdrop" id="reviewModal" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="modal-card review-modal-card">
+      <button class="modal-close-btn" id="closeReviewModalBtn" aria-label="Close review">✕</button>
+      <div class="review-modal-header">
+        <span class="section-kicker">✦ VERIFIED IMPRESSION</span>
+        <h2 style="font-family: var(--font-serif); font-size: 26px; margin: 6px 0 10px;">Submit Collector Testimonial
+        </h2>
+        <p style="font-size: 14px; color: var(--text-secondary); margin-bottom: 24px;">Share your tactile experience
+          with the AURA community. All submissions undergo cryptographic provenance review.</p>
+      </div>
+
+      <form id="reviewSubmissionForm">
+        <div class="form-group" style="margin-bottom: 18px;">
+          <label>Collector Rating:</label>
+          <div class="star-rating-picker" id="starRatingPicker">
+            <button type="button" class="star-pick is-active" data-star="1">★</button>
+            <button type="button" class="star-pick is-active" data-star="2">★</button>
+            <button type="button" class="star-pick is-active" data-star="3">★</button>
+            <button type="button" class="star-pick is-active" data-star="4">★</button>
+            <button type="button" class="star-pick is-active" data-star="5">★</button>
+          </div>
+        </div>
+
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="revAuthor">Your Name / Title</label>
+            <input type="text" id="revAuthor" required placeholder="e.g. Marcella D., Horology Collector" />
+          </div>
+          <div class="form-group">
+            <label for="revLocation">Location / Atelier City</label>
+            <input type="text" id="revLocation" required placeholder="e.g. Geneva, Switzerland" />
+          </div>
+        </div>
+
+        <div class="form-group" style="margin-bottom: 24px;">
+          <label for="revQuote">Your Impression / Review</label>
+          <textarea id="revQuote" rows="4" required
+            placeholder="Describe the finishing, acoustic response, or leather patina..."
+            style="padding: 12px 16px; background: rgba(251,246,238,0.05); border: 1px solid var(--border-medium); border-radius: 10px; font-size: 14px; color: var(--text-primary); resize: vertical;"></textarea>
+        </div>
+
+        <div class="step-actions">
+          <button type="button" class="btn btn-secondary" id="cancelReviewBtn">Cancel</button>
+          <button type="submit" class="btn btn-primary">
+            <span>Publish Testimonial</span>
+            <span class="btn-arrow">✦</span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+
+
+
+
+  <!-- Ambient Audio Player Pill with Live Equalizer Bars -->
+  <div class="audio-control-pill">
+    <button class="audio-toggle-btn" id="audioToggle" aria-label="Toggle ambient atmosphere sound">
+      <div class="equalizer-bars" aria-hidden="true">
+        <span></span><span></span><span></span><span></span>
+      </div>
+      <span class="audio-label">Atelier Soundscape</span>
+    </button>
+  </div>
+
+  <!-- Floating Toast Notification System -->
+  <div class="toast-container" id="toastContainer" aria-live="polite"></div>
+</body>
+
+</html>
