@@ -1365,110 +1365,15 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   /* ==========================================================================
-     12. AI PRIVATE ADVISOR CONCIERGE (Auriel)
-     ========================================================================== */
-  const conciergeDrawer = document.getElementById("conciergeDrawer");
-  const conciergeTriggerBtn = document.getElementById("conciergeTriggerBtn");
-  const closeConciergeBtn = document.getElementById("closeConciergeBtn");
-  const conciergeChatForm = document.getElementById("conciergeChatForm");
-  const conciergeChatInput = document.getElementById("conciergeChatInput");
-  const conciergeChatHistory = document.getElementById("conciergeChatHistory");
-
-  const AI_KNOWLEDGE = [
-    {
-      keywords: ["watch", "timepiece", "chronograph", "daily", "wear"],
-      response: "For daily horological wear, our flagship Horizon Titanium Chronograph (Caliber A-88) is unparalleled. Crafted from Grade 5 aerospace titanium with double-domed AR sapphire, it weighs just 78 grams while offering 100m water resistance."
-    },
-    {
-      keywords: ["speaker", "audio", "resonance", "sound", "acoustics"],
-      response: "The Resonance Studio Monitor features custom beryllium dome tweeters and carbon-fiber bass drivers inside solid turned American walnut. It delivers a neutral mastering response from 32Hz to 28kHz with lossless AirPlay and balanced XLR inputs."
-    },
-    {
-      keywords: ["leather", "bag", "weekender", "patina", "vachetta"],
-      response: "Our leatherware is crafted exclusively from vegetable-tanned Tuscan Vachetta hide in Florence. It is tanned for 60 days using chestnut extracts and develops a rich amber-honey patina over decades of travel."
-    },
-    {
-      keywords: ["bespoke", "custom", "commission", "engraving"],
-      response: "Our Bespoke Lab in Geneva accepts 25 custom commissions annually. You can specify custom alloy cases (including 18K Forged Rose Gold and Meteorite dials) and have your personal monogram micro-etched onto the 22K gold oscillating rotor."
-    },
-    {
-      keywords: ["shipping", "delivery", "armored", "courier"],
-      response: "All orders above $500 enjoy complimentary insured armored courier delivery (DHL Express Private & Swiss Post Priority) with real-time shock and temperature telemetry."
-    }
-  ];
-
-  function getAiResponse(userMsg) {
-    const q = userMsg.toLowerCase();
-    for (const item of AI_KNOWLEDGE) {
-      if (item.keywords.some((k) => q.includes(k))) {
-        return item.response;
-      }
-    }
-    return "Every AURA piece is created as an enduring future heirloom. Would you like me to guide you through our Horizon Horology, Resonance Acoustics, or Bespoke Configurator Lab?";
-  }
-
-  function appendChatMessage(sender, text) {
-    if (!conciergeChatHistory) return;
-    const bubble = document.createElement("div");
-    bubble.className = `chat-bubble ${sender}`;
-    bubble.innerHTML = `<p>${text}</p>`;
-    conciergeChatHistory.appendChild(bubble);
-    conciergeChatHistory.scrollTop = conciergeChatHistory.scrollHeight;
-  }
-
-  if (conciergeTriggerBtn) {
-    conciergeTriggerBtn.addEventListener("click", () => {
-      conciergeDrawer?.classList.add("is-open");
-      conciergeDrawer?.setAttribute("aria-hidden", "false");
-    });
-  }
-  if (closeConciergeBtn) {
-    closeConciergeBtn.addEventListener("click", () => {
-      conciergeDrawer?.classList.remove("is-open");
-      conciergeDrawer?.setAttribute("aria-hidden", "true");
-    });
-  }
-
-  document.querySelectorAll(".chat-prompt-btn").forEach((btn) => {
-    btn.addEventListener("click", () => {
-      const prompt = btn.dataset.prompt;
-      appendChatMessage("user", prompt);
-      setTimeout(() => {
-        appendChatMessage("ai", getAiResponse(prompt));
-      }, 400);
-    });
-  });
-
-  if (conciergeChatForm) {
-    conciergeChatForm.addEventListener("submit", (e) => {
-      e.preventDefault();
-      const txt = conciergeChatInput.value.trim();
-      if (!txt) return;
-      appendChatMessage("user", txt);
-      conciergeChatInput.value = "";
-      setTimeout(() => {
-        appendChatMessage("ai", getAiResponse(txt));
-      }, 500);
-    });
-  }
-
-  /* ==========================================================================
      13. COLLECTOR ACCOUNT VAULT & REVIEW SYSTEM
      ========================================================================== */
   const accountModal = document.getElementById("accountModal");
-  const accountTriggerBtn = document.getElementById("accountTriggerBtn");
   const closeAccountModalBtn = document.getElementById("closeAccountModalBtn");
   const accountTabBtns = Array.from(document.querySelectorAll(".account-tab-btn"));
   const tabCertificates = document.getElementById("tabCertificates");
   const tabLedger = document.getElementById("tabLedger");
   const tabSecurity = document.getElementById("tabSecurity");
 
-  if (accountTriggerBtn) {
-    accountTriggerBtn.addEventListener("click", () => {
-      accountModal?.classList.add("is-open");
-      accountModal?.setAttribute("aria-hidden", "false");
-    });
-  }
   if (closeAccountModalBtn) {
     closeAccountModalBtn.addEventListener("click", () => {
       accountModal?.classList.remove("is-open");
@@ -1670,23 +1575,164 @@ document.addEventListener("DOMContentLoaded", () => {
       accountModal?.setAttribute("aria-hidden", "true");
       reviewModal?.classList.remove("is-open");
       reviewModal?.setAttribute("aria-hidden", "true");
+      const nfcModal = document.getElementById("nfcModal");
+      nfcModal?.classList.remove("is-open");
+      nfcModal?.setAttribute("aria-hidden", "true");
     }
   });
 
-  if (accountModal) {
-    accountModal.addEventListener("click", (e) => {
-      if (e.target === accountModal) {
-        accountModal.classList.remove("is-open");
-        accountModal.setAttribute("aria-hidden", "true");
-      }
+  /* ==========================================================================
+     NFC AUTHENTICATION & MULTI-CATEGORY STORYTELLING
+     ========================================================================== */
+  const vaultTriggerBtn = document.getElementById("vaultTriggerBtn");
+  if (vaultTriggerBtn && accountModal) {
+    vaultTriggerBtn.addEventListener("click", () => {
+      accountModal.classList.add("is-open");
+      accountModal.setAttribute("aria-hidden", "false");
     });
   }
 
-  if (reviewModal) {
-    reviewModal.addEventListener("click", (e) => {
-      if (e.target === reviewModal) {
-        reviewModal.classList.remove("is-open");
-        reviewModal.setAttribute("aria-hidden", "true");
+  // Explore Audio CTA Button
+  const exploreAudioBtn = document.getElementById("exploreAudioBtn");
+  if (exploreAudioBtn) {
+    exploreAudioBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      catFilterBtns.forEach((b) => {
+        const isAudio = b.dataset.category === "acoustics";
+        b.classList.toggle("is-active", isAudio);
+        b.setAttribute("aria-selected", isAudio ? "true" : "false");
+      });
+      currentCategory = "acoustics";
+      renderCatalog();
+      document.getElementById("catalog")?.scrollIntoView({ behavior: "smooth" });
+    });
+  }
+
+  // Bespoke Category Inquiries
+  document.querySelectorAll(".bespoke-nav-pill").forEach((pill) => {
+    pill.addEventListener("click", () => {
+      if (!pill.classList.contains("is-active")) {
+        showToast(`✦ Atelier Inquiry: ${pill.textContent.trim()} — Contacting Concierge`);
+      }
+    });
+  });
+
+  // Cinematic NFC Verification Sequence
+  const nfcModal = document.getElementById("nfcModal");
+  const closeNfcModalBtn = document.getElementById("closeNfcModalBtn");
+  const closeNfcCertBtn = document.getElementById("closeNfcCertBtn");
+  const nfcScanContainer = document.getElementById("nfcScanContainer");
+  const nfcResultCard = document.getElementById("nfcResultCard");
+  const nfcMainStatus = document.getElementById("nfcMainStatus");
+  const nfcSubStatus = document.getElementById("nfcSubStatus");
+  const nfcLiveHash = document.getElementById("nfcLiveHash");
+  const nfcCertId = document.getElementById("nfcCertId");
+  const nfcCertTitle = document.getElementById("nfcCertTitle");
+  const nfcCertDesc = document.getElementById("nfcCertDesc");
+  const nfcStep1 = document.getElementById("nfcStep1");
+  const nfcStep2 = document.getElementById("nfcStep2");
+  const nfcStep3 = document.getElementById("nfcStep3");
+  const nfcStep4 = document.getElementById("nfcStep4");
+
+  const CERT_DATA_MAP = {
+    horizon: {
+      id: "AURA-ZH-99482",
+      title: "Horizon Titanium Chronograph",
+      desc: "CNC-milled Grade 5 Titanium • Serial No. #001/500 • Cryptographically anchored to the AURA Vault Ledger."
+    },
+    resonance: {
+      id: "AURA-ZH-88123",
+      title: "Resonance Studio Monitor",
+      desc: "Solid American Walnut chassis & Beryllium Dome • Calibrated to Swiss mastering studio acoustic standards."
+    },
+    vachetta: {
+      id: "AURA-FL-77419",
+      title: "Tuscan Vachetta Weekender",
+      desc: "Naturally vegetable-tanned full-grain hide • Hand-stitched with solid Swiss brass hardware by Florence Guild."
+    }
+  };
+
+  function startNfcVerification(certKey) {
+    if (!nfcModal) return;
+    const data = CERT_DATA_MAP[certKey] || CERT_DATA_MAP.horizon;
+    
+    // Reset modal UI
+    if (nfcScanContainer) nfcScanContainer.style.display = "flex";
+    if (nfcResultCard) nfcResultCard.style.display = "none";
+    [nfcStep1, nfcStep2, nfcStep3, nfcStep4].forEach((s, idx) => {
+      if (s) s.classList.toggle("is-active", idx === 0);
+    });
+
+    if (nfcMainStatus) nfcMainStatus.textContent = "AUTHENTICATING...";
+    if (nfcSubStatus) nfcSubStatus.textContent = "Scanning physical embedded NFC micro-chip & querying cryptographic hash with Zurich vault nodes.";
+    if (nfcCertId) nfcCertId.textContent = data.id;
+    if (nfcCertTitle) nfcCertTitle.textContent = data.title;
+    if (nfcCertDesc) nfcCertDesc.textContent = data.desc;
+
+    nfcModal.classList.add("is-open");
+    nfcModal.setAttribute("aria-hidden", "false");
+
+    // Dynamic hash animation
+    let hashInterval = setInterval(() => {
+      if (nfcLiveHash) {
+        nfcLiveHash.textContent = `0x${Math.random().toString(16).substring(2, 10).toUpperCase()}...${Math.random().toString(16).substring(2, 6).toUpperCase()}`;
+      }
+    }, 100);
+
+    // Step 2: Identity Found (600ms)
+    setTimeout(() => {
+      if (nfcStep2) nfcStep2.classList.add("is-active");
+      if (nfcMainStatus) nfcMainStatus.textContent = "IDENTITY FOUND";
+      if (nfcSubStatus) nfcSubStatus.textContent = `Physical NFC chip matched. Ledger Record: ${data.id}`;
+    }, 600);
+
+    // Step 3: Edition Verified (1200ms)
+    setTimeout(() => {
+      if (nfcStep3) nfcStep3.classList.add("is-active");
+      if (nfcMainStatus) nfcMainStatus.textContent = "EDITION VERIFIED";
+      if (nfcSubStatus) nfcSubStatus.textContent = "Provenance verified on Swiss & Tuscan distributed atelier nodes.";
+    }, 1200);
+
+    // Step 4: Certificate Sealed (1800ms)
+    setTimeout(() => {
+      clearInterval(hashInterval);
+      if (nfcStep4) nfcStep4.classList.add("is-active");
+      if (nfcLiveHash) nfcLiveHash.textContent = `0x8F9A2B4C99E10F [SEAL VALID]`;
+      if (nfcMainStatus) nfcMainStatus.textContent = "CERTIFICATE SEALED ✦";
+      if (nfcSubStatus) nfcSubStatus.textContent = "Official cryptographic digital certificate unlocked.";
+
+      setTimeout(() => {
+        if (nfcScanContainer) nfcScanContainer.style.display = "none";
+        if (nfcResultCard) nfcResultCard.style.display = "block";
+      }, 500);
+    }, 1800);
+  }
+
+  document.querySelectorAll(".btn-view-cert").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      startNfcVerification(btn.dataset.cert);
+    });
+  });
+
+  if (closeNfcModalBtn) {
+    closeNfcModalBtn.addEventListener("click", () => {
+      nfcModal?.classList.remove("is-open");
+      nfcModal?.setAttribute("aria-hidden", "true");
+    });
+  }
+
+  if (closeNfcCertBtn) {
+    closeNfcCertBtn.addEventListener("click", () => {
+      nfcModal?.classList.remove("is-open");
+      nfcModal?.setAttribute("aria-hidden", "true");
+    });
+  }
+
+  if (nfcModal) {
+    nfcModal.addEventListener("click", (e) => {
+      if (e.target === nfcModal) {
+        nfcModal.classList.remove("is-open");
+        nfcModal.setAttribute("aria-hidden", "true");
       }
     });
   }
