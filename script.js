@@ -212,6 +212,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function update() {
     rafPending = false;
+    if (window.innerWidth <= 768) {
+      return;
+    }
     targetScroll = getScrollDistance();
     if (!initialized || reduceMotion.matches) {
       smoothScroll = targetScroll;
@@ -433,6 +436,13 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function moveSightSlider(dir) {
+    if (window.innerWidth <= 768) {
+      const slider = document.querySelector(".sights-slider");
+      if (slider) {
+        slider.scrollBy({ left: dir * 300, behavior: "smooth" });
+      }
+      return;
+    }
     const maxIdx = Math.max(0, sightCards.length - 1);
     activeSight = clamp(activeSight + dir, 0, maxIdx);
     updateSightSlider();
