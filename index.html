@@ -17,17 +17,12 @@
     href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Cinzel:wght@500;700;800&display=swap"
     rel="stylesheet" />
 
-  <!-- Three.js for 60fps 3D WebGL Experiences -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 
   <link rel="stylesheet" href="styles.css" />
   <script src="script.js" defer></script>
 </head>
 
 <body>
-  <!-- Ambient Light Mesh (Subtle Background Glow) -->
-  <div class="ambient-mesh-glow" id="ambientMeshGlow" aria-hidden="true"></div>
-
   <!-- Announcement Bar -->
   <aside class="announcement-bar" aria-label="Store Announcement">
     <div class="announcement-inner">
@@ -88,11 +83,12 @@
             </nav>
 
             <div class="header-right">
-
-
-
-
-
+              <button class="icon-btn vault-trigger" id="vaultTriggerBtn" aria-label="Collector Vault & NFC Ledger" title="Collector Vault & NFC Ledger">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                  <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                </svg>
+              </button>
 
               <button class="icon-btn wishlist-trigger" id="wishlistTriggerBtn" aria-label="View Wishlist">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -125,6 +121,9 @@
               alt="" />
 
             <section class="sights-slider" aria-label="Featured artifact sights slider">
+              <div class="sights-editorial-badge">
+                <span class="editorial-eyebrow">AURA ATELIER / 01 — SHOWCASE</span>
+              </div>
               <div class="sights-track">
                 <!-- Sight Card 1 -->
                 <article class="sight-card" tabindex="0" role="button" aria-label="Horizon Titanium Chronograph"
@@ -334,34 +333,103 @@
           <div class="shade"></div>
         </div>
 
-        <section class="intro-copy" aria-label="AURA luxury highlights">
-          <p>Aerospace titanium horology, planar studio acoustics, and handcrafted Tuscan leatherware forged for
-            visionary collectors.</p>
+        <!-- ================================================================== -->
+        <!-- EDITORIAL STORY PANELS (3 HIGHLIGHTED SECTIONS)                     -->
+        <!-- ================================================================== -->
+
+        <!-- ================================================================== -->
+        <!-- EDITORIAL STORY PANELS (3 HIGHLIGHTED SECTIONS)                     -->
+        <!-- ================================================================== -->
+
+        <!-- SECTION 03 — THE ATELIER (Brand Philosophy Stage) -->
+        <section class="intro-copy editorial-story-panel" aria-label="The AURA Atelier Philosophy">
+          <div class="editorial-corner-tag">
+            <span class="corner-dot"></span>
+            <span class="corner-val">03 / 03</span>
+          </div>
+          <span class="editorial-eyebrow">AURA ATELIER / 01</span>
+          <h2 class="editorial-headline atelier-headline">
+            <span class="line-reveal"><span>OBJECTS</span></span>
+            <span class="line-reveal"><span>WITHOUT</span></span>
+            <span class="line-reveal"><span>COMPROMISE.</span></span>
+          </h2>
+          <div class="editorial-meta-pill">
+            <span>HOROLOGY</span>
+            <span class="meta-dot">·</span>
+            <span>ACOUSTICS</span>
+            <span class="meta-dot">·</span>
+            <span>LEATHER</span>
+            <span class="meta-dot">·</span>
+            <span>OBJECTS</span>
+          </div>
+          <p class="editorial-desc">Aerospace titanium horology, planar studio acoustics, and handcrafted Tuscan leatherware forged for visionary collectors.</p>
+          <div class="editorial-footer-tag">
+            <span>EST. 2026</span>
+            <span class="meta-dot">/</span>
+            <span>ZURICH · GENEVA · TUSCANY</span>
+          </div>
         </section>
 
-        <section class="story-panel story-panel-bridge" id="bridge" aria-label="Horology details">
-          <h2>Engineered to outlast generations.</h2>
-          <p>CNC-milled from aerospace Grade 5 titanium billets with double-domed anti-reflective sapphire crystals
-            rated to 9 Mohs hardness.</p>
-          <dl class="facts">
-            <div>
-              <dt>100m</dt>
-              <dd>Water Resistance (10 ATM)</dd>
+        <!-- SECTION 02 — HOROLOGY / ENGINEERING -->
+        <section class="story-panel story-panel-bridge editorial-story-panel" id="bridge" aria-label="Horology & Engineering">
+          <div class="editorial-corner-tag">
+            <span class="corner-dot"></span>
+            <span class="corner-val">02 / 03</span>
+          </div>
+          <span class="editorial-eyebrow">AURA / ENGINEERING — 03</span>
+          <h2 class="editorial-headline">
+            <span class="line-reveal"><span>ENGINEERED TO</span></span>
+            <span class="line-reveal"><span>OUTLAST GENERATIONS.</span></span>
+          </h2>
+          <div class="editorial-meta-pill">
+            <span>AEROSPACE MATERIALS</span>
+            <span class="meta-dot">·</span>
+            <span>PRECISION MACHINING</span>
+            <span class="meta-dot">·</span>
+            <span>HAND FINISHING</span>
+          </div>
+          <div class="editorial-specs-grid">
+            <div class="spec-cell">
+              <span class="spec-num">GRADE 5</span>
+              <span class="spec-label">Aerospace Titanium</span>
             </div>
-            <div>
-              <dt>68h</dt>
-              <dd>Power Reserve Caliber</dd>
+            <div class="spec-cell">
+              <span class="spec-num">9 MOHS</span>
+              <span class="spec-label">Sapphire Crystal</span>
             </div>
-          </dl>
+            <div class="spec-cell">
+              <span class="spec-num">68H</span>
+              <span class="spec-label">Mechanical Reserve</span>
+            </div>
+          </div>
+          <a href="#customizer" class="editorial-tech-link">
+            <span>TECHNICAL SPECIFICATION</span>
+            <span class="editorial-cta-arrow">→</span>
+          </a>
         </section>
 
-        <section class="story-panel story-panel-bazaar" id="bazaar" aria-label="Acoustics & archive details">
-          <h2>The pinnacle of acoustic precision.</h2>
-          <p>Master acoustic enclosures housing beryllium drivers tuned for uncompromised mastering clarity and tactile
-            richness.</p>
-          <a href="#catalog" class="note-button" style="text-decoration: none;">
-            <span aria-hidden="true">✦</span>
-            <span>Explore Full Archive (₹799 – ₹2,499)</span>
+        <!-- SECTION 01 — ACOUSTICS -->
+        <section class="story-panel story-panel-bazaar editorial-story-panel" id="bazaar" aria-label="Precision Acoustics">
+          <div class="editorial-corner-tag">
+            <span class="corner-dot"></span>
+            <span class="corner-val">01 / 03</span>
+          </div>
+          <span class="editorial-eyebrow">AURA / ACOUSTICS — 02</span>
+          <h2 class="editorial-headline">
+            <span class="line-reveal"><span>THE PINNACLE OF</span></span>
+            <span class="line-reveal"><span>ACOUSTIC PRECISION.</span></span>
+          </h2>
+          <div class="editorial-meta-pill">
+            <span>PLANAR AUDIO</span>
+            <span class="meta-dot">·</span>
+            <span>STUDIO ACOUSTICS</span>
+            <span class="meta-dot">·</span>
+            <span>HAND-TUNED</span>
+          </div>
+          <p class="editorial-desc">Master acoustic enclosures housing beryllium drivers tuned for uncompromised mastering clarity and tactile richness.</p>
+          <a href="#catalog" class="editorial-cta-btn" id="exploreAudioBtn">
+            <span>EXPLORE AUDIO</span>
+            <span class="editorial-cta-arrow">→</span>
           </a>
         </section>
       </div>
@@ -373,10 +441,14 @@
     <section class="customizer-section page-section" id="customizer" aria-label="Bespoke Timepiece Configurator">
       <div class="customizer-container">
         <div class="section-hero-header text-center">
-          <span class="tagline-kicker">✦ BESPOKE HOROLOGICAL LAB</span>
-          <h2 class="hero-headline section-page-title">Commission Your Unique Horizon</h2>
-          <p class="hero-subtext">Every bespoke commission is assembled by a dedicated master horologist in Geneva,
-            complete with your custom cryptographic rotor engraving.</p>
+          <span class="tagline-kicker">✦ AURA / BESPOKE COMMISSIONS — 04</span>
+          <h2 class="hero-headline section-page-title">The Bespoke Atelier</h2>
+          <p class="hero-subtext">Every bespoke commission is crafted across horology, planar acoustics, and leatherware in our Geneva & Tuscan ateliers with custom laser engraving.</p>
+          <div class="bespoke-category-nav">
+            <span class="bespoke-nav-pill is-active">✦ Horology (Active Studio)</span>
+            <span class="bespoke-nav-pill">Acoustic Enclosures (By Inquiry)</span>
+            <span class="bespoke-nav-pill">Tuscan Leatherware (By Inquiry)</span>
+          </div>
         </div>
 
         <div class="customizer-grid">
@@ -498,27 +570,20 @@
     <section class="catalog-section page-section" id="catalog" aria-label="Product Catalog">
       <div class="catalog-container">
         <div class="section-hero-header text-center">
-          <span class="tagline-kicker">✦ COMPLETE PERMANENT ARCHIVE</span>
-          <h2 class="hero-headline section-page-title">The Atelier Archive</h2>
-          <p class="hero-subtext">Every piece is crafted in limited batches, inspected by hand in our Swiss & Tuscan
-            ateliers, and registered with cryptographic authenticity.</p>
+          <span class="tagline-kicker">✦ AURA / ARCHIVE COLLECTION — 05</span>
+          <h2 class="hero-headline section-page-title">The Permanent Archive</h2>
+          <p class="hero-subtext">A museum-grade collection of collectible objects spanning Horology, Acoustics, Planar Audio, Leatherware, Objects & Decor, and Haute Apparel.</p>
         </div>
 
         <div class="catalog-header">
           <!-- Category Filter Tabs -->
           <div class="category-filter-bar" role="tablist" aria-label="Product Categories">
-            <button class="cat-filter-btn is-active" data-category="all" role="tab" aria-selected="true">All Artifacts
-              (8)</button>
-            <button class="cat-filter-btn" data-category="timepieces" role="tab"
-              aria-selected="false">Timepieces</button>
-            <button class="cat-filter-btn" data-category="acoustics" role="tab" aria-selected="false">Precision
-              Audio</button>
-            <button class="cat-filter-btn" data-category="leather" role="tab" aria-selected="false">Fine
-              Leatherware</button>
-            <button class="cat-filter-btn" data-category="objects" role="tab" aria-selected="false">Objects &
-              Decor</button>
-            <button class="cat-filter-btn" data-category="apparel" role="tab" aria-selected="false">Haute
-              Apparel</button>
+            <button class="cat-filter-btn is-active" data-category="all" role="tab" aria-selected="true">All Artifacts (8)</button>
+            <button class="cat-filter-btn" data-category="timepieces" role="tab" aria-selected="false">Timepieces</button>
+            <button class="cat-filter-btn" data-category="acoustics" role="tab" aria-selected="false">Precision Audio</button>
+            <button class="cat-filter-btn" data-category="leather" role="tab" aria-selected="false">Fine Leatherware</button>
+            <button class="cat-filter-btn" data-category="objects" role="tab" aria-selected="false">Objects & Decor</button>
+            <button class="cat-filter-btn" data-category="apparel" role="tab" aria-selected="false">Haute Apparel</button>
           </div>
 
           <!-- Controls Bar: Search Filter & Sort -->
@@ -954,6 +1019,75 @@
           </button>
         </div>
       </form>
+    </div>
+  </div>
+
+  <!-- 7. Signature NFC Authentication & Holographic Verification Experience -->
+  <div class="modal-backdrop" id="nfcModal" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="modal-card nfc-modal-card">
+      <button class="modal-close-btn" id="closeNfcModalBtn" aria-label="Close verification">✕</button>
+      
+      <div class="nfc-scan-container" id="nfcScanContainer">
+        <div class="nfc-radar-wrapper">
+          <div class="nfc-radar-pulse"></div>
+          <div class="nfc-radar-core">✦</div>
+        </div>
+        <span class="nfc-tag-kicker">✦ AURA CRYPTOGRAPHIC NFC LEDGER</span>
+        <h3 class="nfc-main-status" id="nfcMainStatus">AUTHENTICATING...</h3>
+        <p class="nfc-sub-status" id="nfcSubStatus">Scanning physical embedded NFC micro-chip & verifying cryptographic hash with Zurich vault nodes.</p>
+        
+        <div class="nfc-hash-console" id="nfcHashConsole">
+          <span class="hash-label">HASH:</span>
+          <span class="hash-string" id="nfcLiveHash">0x8F9A2B4C...99E10F</span>
+        </div>
+
+        <div class="nfc-timeline-steps">
+          <div class="nfc-step-item is-active" id="nfcStep1">
+            <span class="nfc-step-dot"></span>
+            <span class="nfc-step-title">1. Authenticating</span>
+          </div>
+          <div class="nfc-step-item" id="nfcStep2">
+            <span class="nfc-step-dot"></span>
+            <span class="nfc-step-title">2. Identity Found</span>
+          </div>
+          <div class="nfc-step-item" id="nfcStep3">
+            <span class="nfc-step-dot"></span>
+            <span class="nfc-step-title">3. Edition Verified</span>
+          </div>
+          <div class="nfc-step-item" id="nfcStep4">
+            <span class="nfc-step-dot"></span>
+            <span class="nfc-step-title">4. Certificate Sealed</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="nfc-result-card" id="nfcResultCard" style="display: none;">
+        <div class="cert-box">
+          <div class="cert-header">
+            <div>
+              <span class="vault-kicker">OFFICIAL DIGITAL CERTIFICATE</span>
+              <div class="cert-id" id="nfcCertId">AURA-ZH-99482</div>
+            </div>
+            <span class="cert-qr">SEALED ✦</span>
+          </div>
+          <div class="cert-body">
+            <h4 id="nfcCertTitle" style="font-family: var(--font-serif); font-size: 20px; margin: 4px 0 10px; color: #fdf1e1;">Horizon Titanium Chronograph</h4>
+            <p id="nfcCertDesc" style="font-size: 13px; color: var(--text-secondary); margin: 0 0 14px;">CNC-milled Grade 5 Titanium • Serial No. #001/500 • Cryptographically anchored to the AURA Vault Ledger.</p>
+            <div class="cert-meta-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; font-size: 11px; padding: 12px; background: rgba(0,0,0,0.3); border-radius: 10px; border: 1px solid rgba(212,175,55,0.2);">
+              <div><span style="color: var(--text-muted);">Provenance:</span> <strong style="color: var(--text-primary);">Geneva Atelier</strong></div>
+              <div><span style="color: var(--text-muted);">Authenticity:</span> <strong style="color: var(--accent-gold-light);">100% Cryptographic</strong></div>
+              <div><span style="color: var(--text-muted);">Timestamp:</span> <strong style="color: var(--text-primary);">2026-08-24 UTC</strong></div>
+              <div><span style="color: var(--text-muted);">Ledger Node:</span> <strong style="color: var(--text-primary);">Zurich Prime #01</strong></div>
+            </div>
+          </div>
+        </div>
+        <div style="text-align: center; margin-top: 20px;">
+          <button type="button" class="btn btn-primary" id="closeNfcCertBtn">
+            <span>Close Verification</span>
+            <span class="btn-arrow">✓</span>
+          </button>
+        </div>
+      </div>
     </div>
   </div>
 
